@@ -72,16 +72,17 @@ class FilterButtonState extends State<FilterButton> {
       margin: const EdgeInsets.only(right: 18.0, top: 5.0),
       child: DropdownButtonHideUnderline(
         child: DropdownButton(
-            icon: const Icon(Icons.filter_alt_rounded),
-            iconSize: 30.0,
-            iconEnabledColor: Colors.white,
-            style: const TextStyle(color: Colors.black),
-            items: [filterVal('All'), filterVal('Done'), filterVal('Not done')],
-            onChanged: (String? value) {
-              setState(() {
-                filterValue = value;
-              });
-            }),
+          icon: const Icon(Icons.filter_alt_rounded),
+          iconSize: 30.0,
+          iconEnabledColor: Colors.white,
+          style: const TextStyle(color: Colors.black),
+          items: [filterVal('All'), filterVal('Done'), filterVal('Not done')],
+          onChanged: (String? value) {
+            setState(() {
+              filterValue = value;
+            });
+          },
+        ),
       ),
     );
   }
@@ -107,7 +108,7 @@ class _TodoEntriesState extends State<TodoEntries> {
     'Köpa mjölk',
     'Posta brevet',
     'Slackline med August',
-    'Brädspel med Mårten',
+    'Brädspel med MårtenBrädspel med MårtenBrädspel med MårtenBrädspel med Mårten',
     '01234567890123456789012345678901',
     'hej',
     'hej',
@@ -242,7 +243,13 @@ class AddEntryView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20.0),
       child: Column(
-        children: [addEntryTextField(), spacing(), addEntryButton()],
+        children: [
+          Spacer(),
+          addEntryTextField(),
+          spacing(),
+          addEntryButton(),
+          Spacer()
+        ],
       ),
     );
   }
