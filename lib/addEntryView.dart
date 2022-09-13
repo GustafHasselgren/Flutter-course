@@ -79,7 +79,7 @@ class AddEntryView extends StatelessWidget {
       },
       icon: const Icon(Icons.add),
       label: const Text('Add'),
-      style: TextButton.styleFrom(primary: Colors.blueGrey[100]),
+      style: TextButton.styleFrom(primary: Colors.orange[600]),
     );
   }
 

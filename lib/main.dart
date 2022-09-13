@@ -22,6 +22,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'To-do',
           theme: ThemeData(
+            checkboxTheme: CheckboxThemeData(
+                fillColor: MaterialStateProperty.all(Colors.orange[600])),
             scaffoldBackgroundColor: Colors.blueGrey[700],
             textTheme: TextTheme(
               bodyText2: TextStyle(fontSize: 15.0, color: Colors.blueGrey[100]),

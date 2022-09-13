@@ -38,7 +38,10 @@ class Entry extends StatelessWidget {
 
   Widget entryCheckbox(context) {
     return Checkbox(
-      fillColor: MaterialStateProperty.resolveWith(getColor),
+      //fillColor: MaterialStateProperty.resolveWith(getColor),
+
+      checkColor: Colors.orange[600],
+      activeColor: Colors.blueGrey[800],
       value: isChecked,
       onChanged: (bool? newValue) {
         Provider.of<FilterChangeNotifier>(context, listen: false)
