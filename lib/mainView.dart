@@ -4,6 +4,7 @@ import './filterButton.dart';
 import './entryList.dart';
 import './filter_change_notifier.dart';
 import 'package:provider/provider.dart';
+import './error_notifier.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
@@ -34,6 +35,8 @@ class MainView extends StatelessWidget {
           backgroundColor: Colors.blueGrey,
           child: const Icon(Icons.add_rounded, size: 50.0),
           onPressed: () async {
+            Provider.of<ErrorNotifier>(context, listen: false)
+                .addEmptyEntryError = null;
             var newEntryText = await Navigator.push(context,
                 MaterialPageRoute(builder: (context) => AddEntryView()));
             filterChangeNotifier.addEntry(newEntryText);

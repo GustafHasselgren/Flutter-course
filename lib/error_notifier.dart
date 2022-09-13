@@ -8,5 +8,6 @@ class ErrorNotifier extends ChangeNotifier {
 
   set addEmptyEntryError(String? msg) {
     _addEmptyEntry = msg;
+    notifyListeners();
   }
 }
