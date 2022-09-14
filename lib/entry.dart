@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import './filter_change_notifier.dart';
+import 'entry_view_data.dart';
 
 class Entry extends StatelessWidget {
   String id;
@@ -15,7 +15,7 @@ class Entry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<FilterChangeNotifier>(
+    return Consumer<EntryViewData>(
         builder: (context, filterChangeNotifier, child) {
       return Padding(
         padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
@@ -25,6 +25,7 @@ class Entry extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
               color: Colors.blueGrey[800]),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               entryCheckbox(context),
               entryTextWidget(),
@@ -38,14 +39,12 @@ class Entry extends StatelessWidget {
 
   Widget entryCheckbox(context) {
     return Checkbox(
-      //fillColor: MaterialStateProperty.resolveWith(getColor),
-
       checkColor: Colors.orange[600],
       activeColor: Colors.blueGrey[800],
       value: isChecked,
       onChanged: (bool? newValue) {
-        Provider.of<FilterChangeNotifier>(context, listen: false)
-            .changeDone(id, newValue!);
+        Provider.of<EntryViewData>(context, listen: false)
+            .changeDone(id, entryText, newValue!);
       },
     );
   }
@@ -74,13 +73,16 @@ class Entry extends StatelessWidget {
         size: 30,
       ),
       onPressed: () {
-        Provider.of<FilterChangeNotifier>(context, listen: false)
-            .deleteEntry(id);
+        Provider.of<EntryViewData>(context, listen: false).deleteEntry(id);
       },
     );
   }
 
   Color getColor(Set<MaterialState> states) {
     return Colors.blueGrey;
+  }
+
+  factory Entry.fromJson(Map<String, dynamic> json) {
+    return Entry(json['id'], json['title'], json['done']);
   }
 }
