@@ -46,6 +46,7 @@ class AddEntryView extends StatelessWidget {
         onChanged: (text) {
           newEntryText = text;
         },
+        showCursor: false,
         style: TextStyle(color: Colors.blueGrey[100]),
         decoration: InputDecoration(
           filled: true,

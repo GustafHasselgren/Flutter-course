@@ -37,9 +37,11 @@ class MainView extends StatelessWidget {
           onPressed: () async {
             Provider.of<ErrorNotifier>(context, listen: false)
                 .addEmptyEntryError = null;
-            var newEntryText = await Navigator.push(context,
+            String? newEntryText = await Navigator.push(context,
                 MaterialPageRoute(builder: (context) => AddEntryView()));
-            filterChangeNotifier.addEntry(newEntryText);
+            if (newEntryText != null) {
+              filterChangeNotifier.addEntry(newEntryText);
+            }
           },
         );
       },

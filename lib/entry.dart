@@ -18,9 +18,10 @@ class Entry extends StatelessWidget {
     return Consumer<EntryViewData>(
         builder: (context, filterChangeNotifier, child) {
       return Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
         child: Container(
-          padding: const EdgeInsets.all(15.0),
+          padding:
+              const EdgeInsets.only(top: 5.0, bottom: 5, right: 10, left: 10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: Colors.blueGrey[800]),
